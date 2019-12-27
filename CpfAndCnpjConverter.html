@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CPF and CNPJ converter - ver 1.0</title>
+  <style>
+    body {
+      background-color: azure;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .forms {
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .button-cnpj {
+      padding: 10px;
+      margin: 20px 20px 20px 590px;
+    }
+
+    .button-cpf {
+      padding: 10px;
+      margin: 20px;
+    }
+
+    input {
+      background-color: rgb(168, 255, 127);
+      border: 2px solid darkslategray;
+    }
+
+    p {
+      text-align: center;
+      margin: 30px;
+      line-height: 2em;
+    }
+
+    h4 {
+      text-align: center;
+      margin-left: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
+  <h2>Transform your CPF or CNPJ - ver 1.0</h2>
+  <div class="forms">
+
+    <input class="cnpj" id="cnpj" placeholder="CNPJ">
+    <input class="cpf" id="cpf" placeholder="CPF">
+  </div>
+  <div class="buttons">
+    <div class="button-cnpj">
+      Modify CNPJ <br>
+      <button type="" id="button1">Click here</button> <br>
+      <textarea id="cnpj-result"></textarea>
+    </div>
+
+    <div class="button-cpf">
+      Modify CPF <br>
+      <button type="" id="button2">Click here</button> <br>
+      <textarea id="cpf-result"></textarea>
+    </div>
+  </div>
+
+  <h2>How to use this tool</h2>
+  <p class="instruction">
+
+    In order to add special characters to CPF or CNPJ just insert the number (by pasting or writing) into the correct
+    field. It will be automatically transformed and you can copy it. <br>
+    If you need to remove special characters insert your number into the correct field and click the button. As a result
+    you will get the digits sequence without special characters.
+
+  </p>
+
+  <script>
+    $(document).ready(function () {
+      $('.cpf').mask('000.000.000-00', { reverse: true });
+      $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
+
+
+
+      $("#button1").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cnpj = $("#cnpj").val();
+        var cnpj2 = cnpj.replace('.', '');
+        var cnpj2 = cnpj2.replace('.', '');
+
+        var cnpj2 = cnpj2.replace('-', '');
+        var cnpj2 = cnpj2.replace('/', '');
+
+        document.getElementById("cnpj-result").innerText = cnpj2;
+      })
+
+      $("#button2").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf").val();
+        var cpf2 = cpf.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+
+        var cpf2 = cpf2.replace('-', '');
+
+        document.getElementById("cpf-result").innerText = cpf2;
+      })
+    });
+  </script>
+</body>
+<footer>
+  <h4>Author: Marek Zarzycki 2019</h4>
+</footer>
+
+</html>
