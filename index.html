@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CPF and CNPJ converter - ver 1.0</title>
+  <title>CPF and CNPJ converter - ver 2.0</title>
   <style>
     body {
       background-color: azure;
@@ -17,23 +17,13 @@
 
     .forms {
       text-align: center;
+    }
+    .forms div {
       padding-bottom: 10px;
     }
-
-    .buttons {
-      display: flex;
-    }
-
-    .button-cnpj {
-      padding: 10px;
-      margin: 20px 20px 20px 590px;
-    }
-
-    .button-cpf {
-      padding: 10px;
-      margin: 20px;
-    }
-
+   .btn {
+     margin: 10px ;
+   }
     input {
       background-color: rgb(168, 255, 127);
       border: 2px solid darkslategray;
@@ -56,23 +46,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 
-  <h2>Transform your CPF or CNPJ - ver 1.0</h2>
+  <h2>Transform your CPF or CNPJ - ver 2.0</h2>
   <div class="forms">
+    <div class="form1">
+      <input class="cnpj" id="cnpj" placeholder="CNPJ">
+      <div class="button-cnpj">
+        Modify CNPJ <br>
+        <button type="" id="button1" class="btn">Click here</button> <br>
+        <textarea id="cnpj-result"></textarea>
+      </div>
 
-    <input class="cnpj" id="cnpj" placeholder="CNPJ">
-    <input class="cpf" id="cpf" placeholder="CPF">
-  </div>
-  <div class="buttons">
-    <div class="button-cnpj">
-      Modify CNPJ <br>
-      <button type="" id="button1">Click here</button> <br>
-      <textarea id="cnpj-result"></textarea>
-    </div>
+      <div class="form2">
+        <input class="cpf" id="cpf" placeholder="CPF">
+        <div class="button-cpf">
+          Modify CPF <br>
+          <button type="" id="button2" class="btn">Click here</button> <br>
+          <textarea id="cpf-result"></textarea>
+        </div>
+      </div>
 
-    <div class="button-cpf">
-      Modify CPF <br>
-      <button type="" id="button2">Click here</button> <br>
-      <textarea id="cpf-result"></textarea>
+      <div class="form3">
+        <input class="cpf0" id="cpf0" placeholder="CPF-0">
+        <div class="button-cpf0">
+          Add 0 to CPF <br>
+          <button type="" id="button3" class="btn">Click here</button> <br>
+          <textarea id="cpf0-result"></textarea>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -83,14 +83,13 @@
     field. It will be automatically transformed and you can copy it. <br>
     If you need to remove special characters insert your number into the correct field and click the button. As a result
     you will get the digits sequence without special characters.
-    
-
   </p>
 
   <script>
     $(document).ready(function () {
       $('.cpf').mask('000.000.000-00', { reverse: true });
       $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
+      $('.cpf0').mask('00.000.000-00');
 
 
 
@@ -117,6 +116,18 @@
         var cpf2 = cpf2.replace('-', '');
 
         document.getElementById("cpf-result").innerText = cpf2;
+      })
+
+      $("#button3").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf0").val();
+        var cpf2 = cpf.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+
+        var cpf2 = cpf2.replace('-', '');
+
+        document.getElementById("cpf0-result").innerText = "0"+cpf2;
       })
     });
   </script>
