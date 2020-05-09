@@ -6,40 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CPF and CNPJ converter - ver 2.0</title>
-  <style>
-    body {
-      background-color: azure;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    h2 {
-      text-align: center;
-    }
-
-    .forms {
-      text-align: center;
-    }
-    .forms div {
-      padding-bottom: 10px;
-    }
-   .btn {
-     margin: 10px ;
-   }
-    input {
-      background-color: rgb(168, 255, 127);
-      border: 2px solid darkslategray;
-    }
-
-    p {
-      text-align: center;
-      margin: 30px;
-      line-height: 2em;
-    }
-
-    h4 {
-      text-align: center;
-      margin-left: 30px;
-    }
-  </style>
 </head>
 
 <body>
@@ -55,30 +23,30 @@
         <button type="" id="button1" class="btn">Click here</button> <br>
         <textarea id="cnpj-result"></textarea>
       </div>
-
-      <div class="form2">
-        <input class="cpf" id="cpf" placeholder="CPF">
-        <div class="button-cpf">
-          Modify CPF <br>
-          <button type="" id="button2" class="btn">Click here</button> <br>
-          <textarea id="cpf-result"></textarea>
-        </div>
-      </div>
-
-      <div class="form3">
-        <input class="cpf0" id="cpf0" placeholder="CPF-0">
-        <div class="button-cpf0">
-          Add 0 in front of the CPF and remove special characters <br>
-          <button type="" id="button3" class="btn">Click here</button> <br>
-          <textarea id="cpf0-result"></textarea>
-        </div>
-        <div class="button-cpf0">
-          Add 0 in front of CPF and add special characters <br>
-          <button type="" id="button4" class="btn">Click here</button> <br>
-          <textarea id="cpf0-result-with-dots"></textarea>
-        </div>
+    </div>
+    <div class="form2">
+      <input class="cpf" id="cpf" placeholder="CPF">
+      <div class="button-cpf">
+        Modify CPF <br>
+        <button type="" id="button2" class="btn">Click here</button> <br>
+        <textarea id="cpf-result"></textarea>
       </div>
     </div>
+
+    <div class="form3">
+      <input class="cpf0" id="cpf0" placeholder="CPF-0">
+      <div class="button-cpf0">
+        Add 0 in front of the CPF and remove special characters <br>
+        <button type="" id="button3" class="btn">Click here</button> <br>
+        <textarea id="cpf0-result"></textarea>
+      </div>
+      <div class="button-cpf0">
+        Add 0 in front of CPF and add special characters <br>
+        <button type="" id="button4" class="btn">Click here</button> <br>
+        <textarea id="cpf0-result-with-dots"></textarea>
+      </div>
+    </div>
+
   </div>
 
   <h2>How to use this tool</h2>
@@ -132,15 +100,15 @@
 
         var cpf2 = cpf2.replace('-', '');
 
-        document.getElementById("cpf0-result").innerText = "0"+cpf2;
+        document.getElementById("cpf0-result").innerText = "0" + cpf2;
       })
 
       $("#button4").on("click", function (e) {
         e.preventDefault(e);
 
         var cpf = $("#cpf0").val();
-        
-        document.getElementById("cpf0-result-with-dots").innerText = "0"+cpf;
+
+        document.getElementById("cpf0-result-with-dots").innerText = "0" + cpf;
       })
     });
   </script>
