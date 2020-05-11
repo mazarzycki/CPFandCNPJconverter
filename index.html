@@ -36,14 +36,28 @@
     <div class="form3">
       <input class="cpf0" id="cpf0" placeholder="CPF-0">
       <div class="button-cpf0">
-        Add 0 in front of the CPF and remove special characters <br>
+        Add 0 in front of the CPF <br/>and remove special characters <br>
         <button type="" id="button3" class="btn">Click here</button> <br>
         <textarea id="cpf0-result"></textarea>
       </div>
       <div class="button-cpf0">
-        Add 0 in front of CPF and add special characters <br>
+        Add 0 in front of CPF <br/>and add special characters <br>
         <button type="" id="button4" class="btn">Click here</button> <br>
         <textarea id="cpf0-result-with-dots"></textarea>
+      </div>
+    </div>
+
+    <div class="form4">
+      <input class="cpf0" id="cpf0" placeholder="CPF-0">
+      <div class="button-cpf0">
+        Add 0 at the end of the CPF <br/>and remove special characters <br>
+        <button type="" id="button5" class="btn">Click here</button> <br>
+        <textarea id="cpf0-result-end"></textarea>
+      </div>
+      <div class="button-cpf0">
+        Add 0 at the end of CPF <br/>and add special characters <br>
+        <button type="" id="button6" class="btn">Click here</button> <br>
+        <textarea id="cpf0-result-with-dots-end"></textarea>
       </div>
     </div>
 
@@ -109,6 +123,25 @@
         var cpf = $("#cpf0").val();
 
         document.getElementById("cpf0-result-with-dots").innerText = "0" + cpf;
+      })
+      $("#button5").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf0").val();
+        var cpf2 = cpf.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+
+        var cpf2 = cpf2.replace('-', '');
+
+        document.getElementById("cpf0-result-end").innerText = cpf2 + "0";
+      })
+
+      $("#button6").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf0").val();
+
+        document.getElementById("cpf0-result-with-dots-end").innerText = cpf + "0";
       })
     });
   </script>
