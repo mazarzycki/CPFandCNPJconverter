@@ -13,8 +13,12 @@
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
-
+<header>
   <h2>Transform your CPF or CNPJ - ver 2.0</h2>
+  <button><a href="index2.html">Link</a></button>
+
+</header>
+  
   <div class="forms">
     <div class="form1">
       <input class="cnpj" id="cnpj" placeholder="CNPJ">
@@ -34,7 +38,7 @@
     </div>
 
     <div class="form3">
-      <input class="cpf0" id="cpf0" placeholder="CPF-0">
+      <input class="0cpf" id="0cpf" placeholder="0-CPF">
       <div class="button-cpf0">
         Add 0 in front of the CPF <br/>and remove special characters <br>
         <button type="" id="button3" class="btn">Click here</button> <br>
@@ -43,7 +47,7 @@
       <div class="button-cpf0">
         Add 0 in front of CPF <br/>and add special characters <br>
         <button type="" id="button4" class="btn">Click here</button> <br>
-        <textarea id="cpf0-result-with-dots"></textarea>
+        <textarea id="0cpf-result-with-dots"></textarea>
       </div>
     </div>
 
@@ -70,13 +74,17 @@
     field. It will be automatically transformed and you can copy it. <br>
     If you need to remove special characters insert your number into the correct field and click the button. As a result
     you will get the digits sequence without special characters.
+
+   
+    
   </p>
 
   <script>
     $(document).ready(function () {
-      $('.cpf').mask('000.000.000-00', { reverse: true });
-      $('.cnpj').mask('00.000.000/0000-00', { reverse: true });
-      $('.cpf0').mask('00.000.000-00');
+      $('.cnpj').mask('00.000.000/0000-00');
+      $('.cpf').mask('000.000.000-00');
+      $('.0cpf').mask('00.000.000-00');
+      $('.cpf0').mask('000.000.000-0');
 
 
 
@@ -108,7 +116,7 @@
       $("#button3").on("click", function (e) {
         e.preventDefault(e);
 
-        var cpf = $("#cpf0").val();
+        var cpf = $("#0cpf").val();
         var cpf2 = cpf.replace('.', '');
         var cpf2 = cpf2.replace('.', '');
 
@@ -120,9 +128,9 @@
       $("#button4").on("click", function (e) {
         e.preventDefault(e);
 
-        var cpf = $("#cpf0").val();
+        var cpf = $("#0cpf").val();
 
-        document.getElementById("cpf0-result-with-dots").innerText = "0" + cpf;
+        document.getElementById("0cpf-result-with-dots").innerText = "0" + cpf;
       })
       $("#button5").on("click", function (e) {
         e.preventDefault(e);

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CPF and CNPJ converter - ver 2.0</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <header>
+    <h2>Transform your CPF or CNPJ - ver 2.0</h2>
+
+  </header>
+
+
+
+  <div class="form-100">
+    <div class="input-100">
+      <input class="cpf-100" id="cpf-100" placeholder="CPF" autofocus>
+    </div>
+    <div class="button-100">
+      Modify CPF <br>
+      <button type="" id="button-100" class="btn">Click here</button>
+      <button onclick="reload()">Remove all entries</button>
+    </div>
+    <div class="output-100">
+      <textarea id="cpf-result-100"></textarea>
+    </div>
+    <div class="output-100">
+      <textarea id="cpf-result-100-with-dots"></textarea>
+    </div>
+
+  </div>
+
+
+
+
+  <h2>How to use this tool</h2>
+  <p class="instruction">
+
+    In order to add or remove special characters to CPF just insert the number (by pasting or writing) into the green
+    field, click the button and copy your result from the field with or without special character (limited to 10 entries at once). 
+
+   
+
+
+
+  <script>
+    $(document).ready(function () {
+
+      $('.cpf-100').mask('000.000.000-00');
+      $("#button-100").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf-100").val();
+        var cpf2 = cpf.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('.', '');
+        var cpf2 = cpf2.replace('-', '');
+
+
+        document.getElementById("cpf-result-100").innerText = cpf2;
+      })
+
+      $('.cpf-100').mask('000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00 000.000.000-00');
+      $("#button-100").on("click", function (e) {
+        e.preventDefault(e);
+
+        var cpf = $("#cpf-100").val();
+        
+        document.getElementById("cpf-result-100-with-dots").innerText = cpf;
+      })
+
+
+    });
+
+    function reload() {
+      location.reload()
+    }
+  </script>
+</body>
+<footer>
+  <h4>Author: Marek Zarzycki 2019</h4>
+</footer>
+
+</html>

@@ -45,3 +45,20 @@
       margin-left: 30px;
     }
   
+    .form-100 {
+      margin: 40px 0px 20px 200px;
+      display: flex;
+      flex-direction: row;
+    }
+    #cpf-100{
+      width: 300px;
+      height: 100px;
+    }
+    #cpf-result-100 {
+      width: 100px;
+      height: 200px;
+    }
+    #cpf-result-100-with-dots {
+      width: 125px;
+      height: 200px;
+    }
